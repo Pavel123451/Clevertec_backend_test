@@ -1,7 +1,5 @@
 package main.java.ru.clevertec.factories;
 
-import java.util.Scanner;
-
 import main.java.ru.clevertec.models.DiscountCard;
 
 public class DiscountCardFactory {

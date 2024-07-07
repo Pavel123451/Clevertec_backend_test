@@ -4,16 +4,12 @@ import main.java.ru.clevertec.exceptions.BadRequestException;
 import main.java.ru.clevertec.factories.DiscountCardFactory;
 import main.java.ru.clevertec.factories.ProductFactory;
 import main.java.ru.clevertec.models.Product;
-import main.java.ru.clevertec.utils.CsvUtil;
 import main.java.ru.clevertec.models.DiscountCard;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class CsvReaderService {

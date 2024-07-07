@@ -2,8 +2,6 @@ package main.java.ru.clevertec.factories;
 
 import main.java.ru.clevertec.models.Product;
 
-import java.util.Scanner;
-
 public class ProductFactory {
     public static Product createProduct(ProductType type, String[] parts) {
         switch (type) {
