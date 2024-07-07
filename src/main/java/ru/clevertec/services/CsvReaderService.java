@@ -29,7 +29,7 @@ public class CsvReaderService {
                 products.add(ProductFactory.createProduct(ProductFactory.ProductType.STANDARD, parts));
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException("Error reading products from CSV file", e);
+            throw new BadRequestException("File with products not found");
         }
         return products;
     }
@@ -49,7 +49,7 @@ public class CsvReaderService {
                         .createDiscountCard(DiscountCardFactory.DiscountCardType.STANDARD, parts));
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException("Error reading discount cards from CSV file", e);
+            throw new BadRequestException("File with discount cards not found");
         }
         return discountCards;
     }
