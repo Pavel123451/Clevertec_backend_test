@@ -13,8 +13,8 @@ import java.util.Locale;
 import java.util.Map;
 
 public class CheckRunner {
-    private final static String PRODUCTS_FILE_PATH = "src/main/resources/products.csv";
-    private final static String DISCOUNT_CARDS_FILE_PATH = "src/main/resources/discountCards.csv";
+    private final static String PRODUCTS_FILE_PATH = "./src/main/resources/products.csv";
+    private final static String DISCOUNT_CARDS_FILE_PATH = "./src/main/resources/discountCards.csv";
     private final static String RESULT_FILE_PATH = "result.csv";
 
     public static void main(String[] args) {
