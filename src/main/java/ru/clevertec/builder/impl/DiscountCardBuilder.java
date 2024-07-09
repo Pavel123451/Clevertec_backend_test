@@ -6,7 +6,7 @@ import ru.clevertec.models.DiscountCard;
 public class DiscountCardBuilder implements Builder<DiscountCard> {
     private long id;
     private int number;
-    private short amount;
+    private short discountPercentage;
 
     public DiscountCardBuilder setId(long id) {
         this.id = id;
@@ -18,13 +18,13 @@ public class DiscountCardBuilder implements Builder<DiscountCard> {
         return this;
     }
 
-    public DiscountCardBuilder setAmount(short amount) {
-        this.amount = amount;
+    public DiscountCardBuilder setDiscountPercentage(short amount) {
+        this.discountPercentage = amount;
         return this;
     }
 
     @Override
     public DiscountCard build() {
-        return new DiscountCard(id, number, amount);
+        return new DiscountCard(id, number, discountPercentage);
     }
 }

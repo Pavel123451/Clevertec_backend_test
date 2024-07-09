@@ -89,6 +89,16 @@ public class ProductDao implements Dao<Product> {
         }
     }
 
+    @Override
+    public void clear() {
+        String query = "DELETE FROM public.product";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting product", e);
+        }
+    }
+
     private Product mapResultSetToProduct(ResultSet resultSet) throws SQLException {
         return new ProductBuilder()
                 .setId(resultSet.getLong("id"))

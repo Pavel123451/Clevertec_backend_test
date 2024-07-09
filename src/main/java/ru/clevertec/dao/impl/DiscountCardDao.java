@@ -82,11 +82,21 @@ public class DiscountCardDao implements Dao<DiscountCard> {
         }
     }
 
+    @Override
+    public void clear() {
+        String query = "DELETE FROM public.discount_card";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting discount card", e);
+        }
+    }
+
     private DiscountCard mapResultSetToDiscountCard(ResultSet resultSet) throws SQLException {
         return new DiscountCardBuilder()
                 .setId(resultSet.getLong("id"))
                 .setNumber(resultSet.getInt("number"))
-                .setAmount(resultSet.getShort("amount"))
+                .setDiscountPercentage(resultSet.getShort("amount"))
                 .build();
     }
 }

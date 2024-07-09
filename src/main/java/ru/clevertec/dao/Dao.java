@@ -9,5 +9,5 @@ public interface Dao<T> {
     void save(T entity) throws SQLException;
     void update(T entity) throws SQLException;
     void delete(long id) throws SQLException;
-
+    void clear() throws SQLException;
 }
