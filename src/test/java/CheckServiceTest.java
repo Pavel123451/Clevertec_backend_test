@@ -67,7 +67,7 @@ public class CheckServiceTest {
     public void testValidateProducts_withInsufficientStock() {
         CheckServlet.CheckRequest.ProductQuantity pq1 = new CheckServlet.CheckRequest.ProductQuantity();
         pq1.setId(1);
-        pq1.setQuantity(10); // Quantity exceeds stock
+        pq1.setQuantity(10);
 
         List<CheckServlet.CheckRequest.ProductQuantity> productQuantities = Arrays.asList(pq1);
 
