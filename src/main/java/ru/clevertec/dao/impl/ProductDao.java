@@ -99,6 +99,15 @@ public class ProductDao implements Dao<Product> {
         }
     }
 
+    public void updateProductQuantity(Long productId, int newQuantity) throws SQLException {
+        String query = "UPDATE public.product SET quantity_in_stock = ? WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, newQuantity);
+            stmt.setLong(2, productId);
+            stmt.executeUpdate();
+        }
+    }
+
     private Product mapResultSetToProduct(ResultSet resultSet) throws SQLException {
         return new ProductBuilder()
                 .setId(resultSet.getLong("id"))

@@ -18,6 +18,26 @@ public class Product {
         this.wholesaleProduct = wholesaleProduct;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setQuantityInStock(int quantityInStock) {
+        this.quantityInStock = quantityInStock;
+    }
+
+    public void setWholesaleProduct(boolean wholesaleProduct) {
+        this.wholesaleProduct = wholesaleProduct;
+    }
+
     public Long getId() {
         return id;
     }

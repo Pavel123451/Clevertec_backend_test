@@ -31,6 +31,21 @@ public class DiscountCardDao implements Dao<DiscountCard> {
         return null;
     }
 
+    public DiscountCard getByNumber(int number) {
+        String query = "SELECT * FROM public.discount_card WHERE number = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setLong(1, number);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return mapResultSetToDiscountCard(resultSet);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching discount card by number", e);
+        }
+        return null;
+    }
+
     @Override
     public List<DiscountCard> getAll() {
         List<DiscountCard> discountCards = new ArrayList<>();

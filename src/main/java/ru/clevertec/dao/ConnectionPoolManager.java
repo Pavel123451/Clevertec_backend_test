@@ -1,22 +1,18 @@
 package ru.clevertec.dao;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectionPoolManager {
     private final List<Connection> connectionPool = new ArrayList<>();
-    private final String url;
-    private final String username;
-    private final String password;
+    private final DataSource dataSource;
     private final int poolSize;
 
-    public ConnectionPoolManager(String url, String username, String password, int poolSize) {
-        this.url = url;
-        this.username = username;
-        this.password = password;
+    public ConnectionPoolManager(DataSource dataSource, int poolSize) {
+        this.dataSource = dataSource;
         this.poolSize = poolSize;
         initializeConnectionPool();
     }
@@ -32,7 +28,7 @@ public class ConnectionPoolManager {
     }
 
     private Connection createNewConnectionForPool() throws SQLException {
-        return DriverManager.getConnection(url, username, password);
+        return dataSource.getConnection();
     }
 
     public synchronized Connection getConnection() {
